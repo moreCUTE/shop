@@ -26,10 +26,12 @@ int main() {
 		switch (room) {
 		case 1:
 			cout << "you are in a room. You can go North" << endl;
+			cout << "press p for shop" << endl;
 			cin >> input;
 			if (input == "n")
 				room = 2;
-
+			else if (input == "p")
+				shop();
 			else
 				cout << "Nope not an option. There's a wall there" << endl;
 
@@ -114,18 +116,20 @@ void shop() {
 		cout << "press 'f' for flashlight, 'b' for bandaid, and 's' for shank." << endl;
 		cout << "press 'q' to quit." << endl;
 		cin >> input;
-		if (input == "p"&&money>=3) {
+		if (input == "p" && money >= 3) {
 			money -= 3;
 			items[0] = "flashlight";
 		}
-		else if(input == "b"&&money<=1) {
+		else if (input == "b" && money <= 1) {
 			money -= 1;
 			items[1] = "bandaid";
 		}
-		else if (input == "s"&&money<=5) {
+		else if (input == "s" && money <= 5) {
 			money -= 5;
 			items[2] = "shank";
 		}
-			
+
+
 	} while (input != "q");
+}
 
